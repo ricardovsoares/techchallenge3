@@ -1,0 +1,52 @@
+============================================================
+RELATÓRIO FINAL — TECH CHALLENGE FASE 3
+Flight Delays — Machine Learning Engineering
+============================================================
+
+1. CLASSIFICAÇÃO (Prever se voo vai atrasar ≥15 min)
+--------------------------------------------------
+  Melhor modelo: LightGBM
+  ROC-AUC:  0.9684
+  F1-Score: 0.8261
+
+  Todos os modelos:
+    Random Forest             | AUC=0.9633 | F1=0.8068
+    LightGBM                  | AUC=0.9684 | F1=0.8261
+
+2. REGRESSÃO (Prever tempo de atraso em minutos)
+--------------------------------------------------
+  Melhor modelo: LightGBM Reg
+  RMSE: 11.36 min
+  MAE:  6.50 min
+  R²:   0.9540
+
+  Todos os modelos:
+    Random Forest Reg         | RMSE=12.36 | MAE=7.15 | R²=0.9456
+    LightGBM Reg              | RMSE=11.36 | MAE=6.50 | R²=0.9540
+
+3. PRINCIPAIS CONCLUSÕES
+--------------------------------------------------
+  • DEPARTURE_DELAY é o preditor mais forte de ARRIVAL_DELAY.
+  • Voos no período noturno e em dias de sexta-feira têm
+    maior probabilidade de atraso.
+  • Meses de junho, julho e dezembro apresentam picos de atraso.
+  • Atraso causado por aeronave atrasada (LATE_AIRCRAFT) é
+    a causa mais frequente — efeito cascata de voos anteriores.
+  • K-Means revelou clusters distintos de rotas curtas/rápidas
+    vs rotas longas/transcontinentais.
+
+4. LIMITAÇÕES
+--------------------------------------------------
+  • Dataset limitado ao ano de 2015 (sem generalização temporal).
+  • DEPARTURE_DELAY pode introduzir viés (dado disponível apenas
+    após o voo partir — atenção ao deployment).
+  • Dados meteorológicos detalhados não estão presentes.
+
+5. PRÓXIMOS PASSOS
+--------------------------------------------------
+  • Integrar dados de clima (NOAA) como feature externa.
+  • Explorar modelos de séries temporais (LSTM) para capturar
+    efeito cascata entre voos sequenciais.
+  • Construir pipeline de inferência em tempo real.
+  • Ajustar hiperparâmetros com Optuna/Bayesian Search.
+============================================================
