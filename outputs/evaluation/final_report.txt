@@ -26,7 +26,10 @@ Flight Delays — Machine Learning Engineering
 
 3. PRINCIPAIS CONCLUSÕES
 --------------------------------------------------
-  • DEPARTURE_DELAY é o preditor mais forte de ARRIVAL_DELAY.
+  • Em ambos os problemas — classificação (prever se o voo vai estar "Atrasado") e regressão (prever o atraso em minutos) — 
+  o LightGBM superou o Random Forest em todas as métricas.
+  • A maioria das companhias chega adiantada na média.
+  • As companhias NK e F9 são as piores em pontualidade
   • Voos no período noturno e em dias de sexta-feira têm
     maior probabilidade de atraso.
   • Meses de junho, julho e dezembro apresentam picos de atraso.
@@ -39,7 +42,7 @@ Flight Delays — Machine Learning Engineering
 --------------------------------------------------
   • Dataset limitado ao ano de 2015 (sem generalização temporal).
   • DEPARTURE_DELAY pode introduzir viés (dado disponível apenas
-    após o voo partir — atenção ao deployment).
+    após o voo partir).
   • Dados meteorológicos detalhados não estão presentes.
 
 5. PRÓXIMOS PASSOS
@@ -48,5 +51,4 @@ Flight Delays — Machine Learning Engineering
   • Explorar modelos de séries temporais (LSTM) para capturar
     efeito cascata entre voos sequenciais.
   • Construir pipeline de inferência em tempo real.
-  • Ajustar hiperparâmetros com Optuna/Bayesian Search.
 ============================================================
